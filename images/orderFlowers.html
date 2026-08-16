@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Injabulo Gallery</title>
+  <meta name="description" content="Professional landscaping, lawn maintenance, garden design, and property care services in Ermelo. Reliable, affordable, quality guaranteed. Free quotes available.">
+  <meta name="google-site-verification" content="ykbK9y5Ayw79fZYIXV96JhBcG5zOJwum8FJCeMQU0h0"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <img src="https://i.postimg.cc/ncTbVT4b/logo.jpg" alt="Injabulo Logo" class="company-logo">
+        <div class="logo-text">
+          <div class="logo-main">INJABULO</div>
+          <div class="logo-sub">Maintenance & Construction</div>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu"><span class="hamburger"></span></button>
+      <div class="nav-menu">
+        <ul>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#shop" class="nav-link">Order Flowers</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="tel:0660400260" class="nav-cta">Call Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="container">
+        <h1 class="hero-title">Bringing Nature to Life</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Flower Shop -->
+  <section id="shop" class="section shop-section">
+    <div class="container">
+      <h2 class="section-title shop-title">ORDER FLOWERS</h2>
+      <p class="shop-subtitle">Fresh blooms, delivered with care. Select what you love and send your order straight to us on WhatsApp.</p>
+
+      <!-- Cart Bar -->
+      <div class="cart-bar" id="cartBar">
+        <div class="cart-bar-left">
+          <i class="fas fa-shopping-basket"></i>
+          <span id="cartCount">0</span> item(s) &nbsp;|&nbsp; <strong>R<span id="cartTotal">0</span></strong>
+        </div>
+        <button class="cart-checkout-btn" onclick="checkout()">
+          <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </button>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="shop-filters">
+        <button class="filter-btn active" onclick="filterShop('all', this)">All</button>
+        <button class="filter-btn" onclick="filterShop('snapdragon', this)">Snapdragon</button>
+        <button class="filter-btn" onclick="filterShop('single', this)">Single Stems</button>
+        <button class="filter-btn" onclick="filterShop('gazania', this)">Gazania </button>
+        <button class="filter-btn" onclick="filterShop('potted', this)">Potted Plants</button>
+        <button class="filter-btn" onclick="filterShop('plaantboxes', this)">Plant Boxes</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="shop-grid">
+
+        <div class="product-card" data-category="snapdragon ">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/j2NtNyxt/IMG-20260615-WA0014.jpg" alt="Mixed Snapdragon Bouquet">
+            <span class="product-badge">Popular</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Mixed Snapdragon Bouquet</h3>
+            <p class="product-desc"></p>
+            <div class="product-footer">
+              <span class="product-price">R 70</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Mixed Snapdragon Bouquet',70)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="snapdragon">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/brbpb1yy/IMG-20260615-WA0011.jpg" alt="Sunflower Bouquet">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Ox Tongue</h3>
+            <p class="product-desc"></p>
+            <div class="product-footer">
+              <span class="product-price">R 25</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Ox Tongue',25)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="snapdragon">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/BbD4D2Sf/IMG-20260615-WA0018.jpg" alt="Wildflower Bouquet">
+            <span class="product-badge new-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Lilly Of The Nile</h3>
+            <p class="product-desc"></p>
+            <div class="product-footer">
+              <span class="product-price">R 35</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Lilly Of The Nile',35)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="Gazania">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/vT9b95QK/IMG-20260615-WA0021.jpg" alt="Red Rose Single">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Gazania Yellow</h3>
+            <p class="product-desc">It come as tray of 6 flowers.</p>
+            <div class="product-footer">
+              <span class="product-price">R 70</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Gazania Yellow',70)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="single">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/1t89mLbm/IMG-20260615-WA0055.jpg" alt="White Lily Single">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">White Lily (Single)</h3>
+            <p class="product-desc">Elegant white oriental lily stem</p>
+            <div class="product-footer">
+              <span class="product-price">R 45</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'White Lily (Single)',45)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="potted">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/wv16qSn6/IMG-20260615-WA0054.jpg" alt="Luxury Vase Arrangement">
+            <span class="product-badge">Premium</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Haworthiopsis Limifolia</h3>
+            <p class="product-desc">Mathithibala</p>
+            <div class="product-footer">
+              <span class="product-price">R 50</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Haworthiopsis Limifolia',50)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="snapdragon">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/d1hqszgJ/IMG-20260615-WA0053.jpg" alt="Table Centrepiece">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Table Centrepiece</h3>
+            <p class="product-desc"></p>
+            <div class="product-footer">
+              <span class="product-price">R 100</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Table Centrepiece',100)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="single">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/FRY9r2w3/IMG-20260615-WA0044.jpg" alt="Peace Lily Pot">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Wax Begonia</h3>
+            <p class="product-desc"></p>
+            <div class="product-footer">
+              <span class="product-price">R 50</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Wax Begonia',50)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="potted">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/50Xx4ZD5/IMG-20260615-WA0045.jpg" alt="Succulent Garden">
+            <span class="product-badge new-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Succulent Garden</h3>
+            <p class="product-desc">Species Of Haworthiopsis Limifolia</p>
+            <div class="product-footer">
+              <span class="product-price">R 50</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Succulent Garden',50)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+         <div class="product-card" data-category="plaantboxes">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/pTm2Wg3J/IMG-20260615-WA0042.jpg" alt="Succulent Garden">
+            <span class="product-badge new-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Plant Box Of Gazania</h3>
+            <p class="product-desc">Mixed succulents in a wooden display box</p>
+            <div class="product-footer">
+              <span class="product-price">R 700</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Plant Box Of Gazanian',700)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+         <div class="product-card" data-category="potted">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/hjNKf2qs/IMG-20260615-WA0031.jpg" alt="Succulent Garden">
+            <span class="product-badge new-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Gazania Orange</h3>
+            <p class="product-desc">It come as tray of 6 flowers.</p>
+            <div class="product-footer">
+              <span class="product-price">R 70</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Gazania Orange',70)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+         <div class="product-card" data-category="potted">
+          <div class="product-img-wrap">
+            <img src="https://i.postimg.cc/6qRtRC9m/IMG-20260615-WA0023.jpg" alt="Succulent Garden">
+            <span class="product-badge new-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Gazania Single Stem Yellow</h3>
+            <p class="product-desc">It come as tray of 6 flowers.</p>
+            <div class="product-footer">
+              <span class="product-price">R 70</span>
+              <div class="qty-control">
+                <button onclick="changeQty(this,-1)">−</button>
+                <span class="qty">0</span>
+                <button onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(this,'Gazania Single Stem Yellow',70)"><i class="fas fa-basket-shopping"></i> Add to Order</button>
+          </div>
+        </div>
+
+        
+        <div class="product-card custom-card" data-category="all" >
+          <div class="custom-card-inner">
+            <i class="fas fa-pen-to-square custom-icon"></i>
+            <h3>Custom Order</h3>
+            <p>Can't find what you're looking for? Describe your dream arrangement and we'll make it happen.</p>
+            <a href="https://wa.me/27660400260?text=Hi%20Injabulo!%20I%27d%20like%20to%20place%20a%20custom%20flower%20order." target="_blank" class="custom-order-btn">
+              <i class="fab fa-whatsapp"></i> Chat to Us
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Modal -->
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3><i class="fab fa-whatsapp" style="color:#25D366"></i> Complete Your Order</h3>
+      <p>Please provide your details and we'll confirm via WhatsApp.</p>
+      <div id="modalCartSummary"></div>
+      <div class="modal-fields">
+        <label>Your Name</label>
+        <input type="text" id="orderName" placeholder="e.g. Thabo Dlamini">
+        <label>Delivery Address / Area</label>
+        <input type="text" id="orderAddress" placeholder="e.g. 12 Rose Street, Ermelo">
+        <label>Special Note (optional)</label>
+        <input type="text" id="orderNote" placeholder="e.g. Include a greeting card — Happy Birthday!">
+      </div>
+      <button class="modal-send-btn" onclick="sendWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Send Order on WhatsApp
+      </button>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <img src="https://i.postimg.cc/ncTbVT4b/logo.jpg" alt="Injabulo Logo" class="footer-logo">
+          <p class="footer-tagline">Bringing Nature to Life</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column"><h3>Services</h3><ul><li><a href="#services">Lawn Maintenance</a></li><li><a href="#services">Garden Design</a></li><li><a href="#services">Property Care</a></li></ul></div>
+          <div class="footer-column"><h3>Company</h3><ul><li><a href="#gallery">Our Work</a></li><li><a href="#shop">Order Flowers</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li></ul></div>
+          <div class="footer-column"><h3>Connect</h3>
+            <div class="social-links">
+              <a href="https://m.facebook.com/100083415397086/about/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/27660400260" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              <a href="mailto:injabulodhlamini22@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="tel:0660400260"><i class="fas fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Injabulo Maintenance & Construction. All rights reserved.</p>
+        <p class="credit">Crafted with care | Galela Tech</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/27660400260" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="gallery.js"></script>
+</body>
+</html>
