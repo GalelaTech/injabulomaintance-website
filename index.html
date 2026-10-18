@@ -7,6 +7,9 @@
   <meta name="description" content="Professional landscaping, lawn maintenance, garden design, and property care services in Ermelo. Reliable, affordable, quality guaranteed. Free quotes available.">
   <meta name="google-site-verification" content="ykbK9y5Ayw79fZYIXV96JhBcG5zOJwum8FJCeMQU0h0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="icon"
+          type="image/png"
+          href="https://i.postimg.cc/CxrF7syy/download.png">
   <style>
     :root {
       --primary-green: #1b5e20;
@@ -429,47 +432,46 @@
       font-size: 0.9rem;
     }
 
-    /* ========== FIXED VIDEO GALLERY SECTION ========== */
-    .video-gallery-section {
-      background: var(--white);
+    /* ========== VIDEO GALLERY SECTION ========== */
+
+.video-gallery-section {
+    background: var(--white);
+}
+
+.video-gallery {
+    max-width: 1000px;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.video-showcase {
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #000;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.video-showcase video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: #0a1f0c;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .video-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    .video-showcase {
-      max-width: 1500px;
-      margin: 2rem auto 0;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      background: #000;
-      transition: var(--transition);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    .video-showcase video {
-      width: 100%;
-      height: auto;
-      display: block;
-      aspect-ratio: 1 / 1;
-      object-fit:fill;
-      background: #0a1f0c;
-    }
-    .video-caption {
-      text-align: center;
-      margin-top: 1rem;
-      font-weight: 500;
-      color: var(--primary-green);
-      background: var(--off-white);
-      display: inline-block;
-      width: auto;
-      padding: 6px 20px;
-      border-radius: 60px;
-      font-size: 0.85rem;
-      letter-spacing: 0.3px;
-    }
-    .video-note {
-      font-size: 0.85rem;
-      text-align: center;
-      margin-top: 1rem;
-      color: var(--text-muted);
-    }
+}
 
     /* ========== MOBILE SLIDESHOW ========== */
     @media (max-width: 767px) {
@@ -855,20 +857,39 @@
     </div>
   </section>
 
-  <!-- ========== FIXED VIDEO GALLERY SECTION (autoplay loop) ========== -->
-  <section class="section video-gallery-section">
-    <div class="container">
-      <h2 class="section-title">Project in Action</h2>
-      <p class="section-subtitle">Watch our professional landscaping process</p>
+  <!-- ========== VIDEO GALLERY SECTION ========== -->
+<section class="section video-gallery-section">
+  <div class="container">
+
+    <h2 class="section-title">Project in Action</h2>
+    <p class="section-subtitle">
+      Watch our professional landscaping process
+    </p>
+
+    <div class="video-gallery">
+
+      <!-- Video 1 -->
       <div class="video-showcase">
-        <video id="projectVideo" autoplay muted playsinline>
+        <video id="projectVideo1" autoplay muted playsinline loop>
           <source src="videos/1000332698 - Trim.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <!-- Video 2 -->
+      <div class="video-showcase">
+        <video id="projectVideo2" autoplay muted playsinline loop>
+          <source src="videos/VID-20260930-WA0023.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
+
+     
+
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- Pricing -->
   <section id="pricing" class="section section-alt">
@@ -921,7 +942,12 @@
         </div>
         <div class="footer-links">
           <div class="footer-column"><h3>Services</h3><ul><li><a href="#services">Lawn Maintenance</a></li><li><a href="#services">Garden Design</a></li><li><a href="#services">Property Care</a></li></ul></div>
-          <div class="footer-column"><h3>Company</h3><ul><li><a href="#gallery">Our Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li></ul></div>
+          <div class="footer-column"><h3>Company</h3><ul><li><a href="#gallery">Our Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li>
+          <a href="adminDashboard.html">Dashboard</a></li>
+          </ul>
+          </div>
+          
+          
           <div class="footer-column"><h3>Shop</h3><ul><li><a href="orderFlowers.html">Order Compost</a></li><li><a href="orderFlowers.html">Order Flowers</a></li><li><a href="orderFlowers.html">Ready-Mix Compost</a></li></ul></div>
           <div class="footer-column"><h3>Connect</h3><div class="social-links"><a href="https://m.facebook.com/100083415397086/about/" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/27660400260" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="mailto:injabulodhlamini22@gmail.com"><i class="fas fa-envelope"></i></a><a href="tel:0660400260"><i class="fas fa-phone"></i></a></div></div>
         </div>
@@ -966,6 +992,7 @@
       { src: 'https://i.postimg.cc/FRmZSLRF/IMG-20260511-WA0004.jpg', label: 'Garden Making'},
       { src: 'https://i.postimg.cc/d1B9jVkF/IMG-20260511-WA0002.jpg', label: 'Backyard Decoration'},
       { src: 'https://i.postimg.cc/DZgcPwJn/IMG-20260511-WA0000.jpg', label: 'Backyard Osis'},
+      {src: 'https://i.postimg.cc/fWKZ54Ss/IMG-20261005-WA0009.jpg', label: 'Ready Installation Grass'},
       { src: 'https://i.postimg.cc/vBMznVmj/IMG-20260511-WA0011.jpg',label: 'Gutter Cleaning Phase 1'},
       { src: 'https://i.postimg.cc/KzFNTMzZ/IMG-20260511-WA0009.jpg',label: 'Gutter Cleaning Phase 2'},
       { src: 'https://i.postimg.cc/Y9k3FW9t/IMG-20260511-WA0008.jpg',label: 'Gutter Cleaning Phase 3'},
@@ -1079,13 +1106,14 @@ const remindLaterBtn = document.getElementById('popupDismissLater');
 // Check if popup has been shown before (session storage)
 let popupSeen = sessionStorage.getItem('flowerShopSeen');
 
+i/*
 if(!popupSeen) {
-  // Show popup after 1.5 seconds when user enters the site
   setTimeout(() => { 
     if(entryPopup) entryPopup.classList.add('active'); 
   }, 1500);
   sessionStorage.setItem('flowerShopSeen', 'true');
 }
+*/
 
 // Function to close popup
 function closePopup() { 
@@ -1114,5 +1142,6 @@ if(entryPopup) {
 }
 
   </script>
+  <script src="track.js"></script>
 </body>
 </html>

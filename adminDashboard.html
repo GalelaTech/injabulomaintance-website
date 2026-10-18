@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Injabulo Admin · Analytics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="dashboard">
+    
+    <!-- HEADER -->
+    <div class="admin-header">
+      <h1><i class="fas fa-leaf"></i> Injabulo Analytics</h1>
+      <div class="badge-live">
+        <i class="fas fa-circle"></i> LIVE
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-info">
+          <h3>Total Visits</h3>
+          <div class="stat-number" id="totalVisits">—</div>
+        </div>
+        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+      </div>
+    </div>
+
+    <!-- VISITS LIST -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-eye"></i> Recent Visits</h2>
+      </div>
+      <div id="visits-list"></div>
+    </div>
+
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
