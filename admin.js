@@ -5,28 +5,41 @@
     const API_BASE = 'https://galela-solution-backend.onrender.com/api/dashboard';
     const SITE     = 'injabulo';
 
-    // 1. Secure Key Prompt
-    let KEY = sessionStorage.getItem('gs_injabulo_admin_key');
-    
-    if (!KEY) {
-        KEY = prompt("🔒 Enter Injabulo Admin Password:");
-        
-        if (!KEY) {
-            document.body.innerHTML = `
-                <div style="text-align:center; margin-top: 100px; font-family: sans-serif;">
-                    <h2 style="color: #b71c1c;">Access Denied</h2>
-                    <p>You must enter the admin password to view this page.</p>
-                    <button onclick="window.location.reload()" style="padding: 10px 20px; cursor: pointer;">Try Again</button>
-                </div>
-            `;
-            return; 
+    // ── Authentication ─────────────────────────────────────────
+    let TOKEN = localStorage.getItem('gs_injabulo_token');
+
+    async function login() {
+        let password = prompt("🔒 Enter Injabulo Admin Password:");
+        if (!password) return false;
+
+        try {
+            const res = await fetch(`${API_BASE}/login/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: password })
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                TOKEN = data.token;
+                localStorage.setItem('gs_injabulo_token', TOKEN);
+                return true;
+            } else {
+                alert("Invalid password.");
+                return false;
+            }
+        } catch (err) {
+            alert("Login failed. Please check your connection.");
+            return false;
         }
-        
-        sessionStorage.setItem('gs_injabulo_admin_key', KEY);
     }
 
-    // 2. Encode the key so special characters (@, &, etc.) don't break URLs
-    const ENCODED_KEY = encodeURIComponent(KEY);
+    // Helper to attach the Bearer token to every request
+    async function apiFetch(url, options = {}) {
+        if (!options.headers) options.headers = {};
+        options.headers['Authorization'] = `Bearer ${TOKEN}`;
+        return fetch(url, options);
+    }
 
     // ── Helpers ────────────────────────────────────────────────
     const $ = (sel) => document.querySelector(sel);
@@ -46,9 +59,14 @@
 
     // ── Fetch Data ─────────────────────────────────────────────
     const fetchVisits = async () => {
-        // Using ENCODED_KEY here
-        const url = `${API_BASE}/visits/?key=${ENCODED_KEY}&site=${SITE}`;
-        const res = await fetch(url);
+        const url = `${API_BASE}/visits/?site=${SITE}`;
+        const res = await apiFetch(url);
+        
+        if (res.status === 401 || res.status === 403) {
+            localStorage.removeItem('gs_injabulo_token');
+            window.location.reload();
+            return;
+        }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
     };
@@ -115,13 +133,30 @@
             
             const id = visitBtn.dataset.deleteVisit;
             
-            // Using ENCODED_KEY here
-            await fetch(`${API_BASE}/visits/${id}/?key=${ENCODED_KEY}`, { method: 'DELETE' });
+            const res = await apiFetch(`${API_BASE}/visits/${id}/`, { method: 'DELETE' });
+            
+            if (res.status === 401 || res.status === 403) {
+                localStorage.removeItem('gs_injabulo_token');
+                window.location.reload();
+                return;
+            }
+            
             load(); 
         }
     });
 
     // ── Init ───────────────────────────────────────────────────
-    load();
+    async function init() {
+        if (!TOKEN) {
+            const success = await login();
+            if (!success) {
+                document.body.innerHTML = "<h2 style='text-align:center; margin-top:50px;'>Access Denied.</h2>";
+                return;
+            }
+        }
+        load();
+    }
+
+    init();
 
 })();
